@@ -8,8 +8,4 @@ router.get('/audios', async (request, response) => {
   response.render('pages/categories/audios');
 });
 
-router.get('/articles', async (request, response) => {
-  response.render('pages/categories/articles');
-});
-
 module.exports = router;

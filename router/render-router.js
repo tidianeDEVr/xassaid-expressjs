@@ -12,18 +12,18 @@ router.get('/', checkAuthenticated, async (request, response) => {
     audiosCount: 5,
     filesCount: 5,
     podcastsCount: 5,
-    articlesCount: 5,
+    usersCount: 5,
   };
   response.render('pages/dashboard', {
     overview,
   });
 });
 
-router.get('/audios', async (request, response) => {
+router.get('/audios', checkAuthenticated, async (request, response) => {
   response.render('pages/audios');
 });
 
-router.post('/audios', async (req, res) => {
+router.post('/audios', checkAuthenticated, async (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('Aucun fichier téléchargé.');
   }
@@ -46,20 +46,16 @@ router.post('/audios', async (req, res) => {
   });
 });
 
-router.get('/podcasts', async (request, response) => {
+router.get('/podcasts', checkAuthenticated, async (request, response) => {
   response.render('pages/podcasts');
 });
 
-router.get('/users', async (request, response) => {
+router.get('/users', checkAuthenticated, async (request, response) => {
   response.render('pages/users');
 });
 
-router.get('/library', async (request, response) => {
+router.get('/library', checkAuthenticated, async (request, response) => {
   response.render('pages/library');
-});
-
-router.get('/articles', async (request, response) => {
-  response.render('pages/articles');
 });
 
 module.exports = router;
