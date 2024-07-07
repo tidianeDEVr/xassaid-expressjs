@@ -5,18 +5,57 @@
       <li class="nav-item">
         <a class="nav-link" href="/">Tableau de bord</a>
       </li>
+      <div class="dropdown">
+        <a
+          class="nav-link dropdown-toggle cursor-pointer"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          style="cursor: pointer"
+        >
+          Audios
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/audios">Fichiers Audios</a></li>
+          <li><a class="dropdown-item" href="/podcasts">Podcasts</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <a
+          class="nav-link dropdown-toggle cursor-pointer"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          style="cursor: pointer"
+        >
+          Documents
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="/articles">Articles de blog</a>
+          </li>
+          <li><a class="dropdown-item" href="/library">Bibliothèque</a></li>
+        </ul>
+      </div>
       <li class="nav-item">
-        <a class="nav-link" href="/about">Audios</a>
+        <a class="nav-link" href="/users">Utilisateurs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/about">Podcasts</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about">Bibliothèque</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about">Déconnexion</a>
+        <form action="/security/logout?_method=DELETE" method="POST">
+          <!-- <a class="nav-link" href="/security/logout">Déconnexion</a> -->
+          <button type="submit">Déconnexion</button>
+        </form>
       </li>
     </ul>
   </div>
 </nav>
+
+<div
+  class="position-absolute top-0 left-0 vw-100 vh-100 bg-white d-flex align-items-center d-xl-none"
+  style="z-index: 999999"
+>
+  <div class="container">
+    <div class="alert alert-danger" role="alert">
+      <i class="ri-alert-fill"></i>
+      <span>Veuillez utiliser votre ordinateur !</span>
+    </div>
+  </div>
+</div>
